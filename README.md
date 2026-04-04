@@ -291,30 +291,3 @@ db.users.updateOne(
   { $set: { role: "admin" } }
 )
 ```
-
----
-
-## 📸 Screenshots
-
-> Add screenshots of your app here after deployment
-
----
-
-## 🗺️ Roadmap
-
-- [x] Phase 1 — Core (Auth, Products, Cart, Orders)
-- [x] Phase 2 — Payments (Razorpay)
-- [x] Phase 3 — Admin Panel
-- [ ] Phase 4 — Wishlist, Reviews, Email Notifications
-
----
-
-## 🤝 Contributing
-
-Pull requests are welcome. For major changes, open an issue first.
-
----
-
-## 📄 License
-
-MIT License — free to use and modify.

@@ -15,3 +15,9 @@ Backend/products.json
 # OS
 .DS_Store
 Thumbs.db
+
+frontend/public/image.jpg
+frontend/public/image2.png
+frontend/public/image3.png
+frontend/public/images.png
+frontend/public/z.webp
