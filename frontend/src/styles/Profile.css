@@ -1,0 +1,257 @@
+/* =========================
+   PROFILE PAGE
+========================= */
+
+.profile-container {
+  max-width: 900px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.profile-title {
+  font-size: 32px;
+  font-weight: 700;
+  color: #111;
+  margin-bottom: 28px;
+}
+
+.profile-loading {
+  text-align: center;
+  padding: 80px;
+  color: #888;
+  font-size: 16px;
+}
+
+/* =========================
+   GRID LAYOUT
+========================= */
+
+.profile-grid {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+/* =========================
+   CARD
+========================= */
+
+.profile-card {
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  margin-bottom: 20px;
+}
+
+/* =========================
+   LEFT — AVATAR
+========================= */
+
+.profile-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 10px;
+}
+
+.profile-big-avatar {
+  width: 90px;
+  height: 90px;
+  background: #FFD814;
+  color: #111;
+  border-radius: 50%;
+  font-size: 36px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid #FCD200;
+  margin-bottom: 6px;
+}
+
+.profile-user-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.profile-user-email {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+  word-break: break-all;
+}
+
+.profile-role-badge {
+  background: #f0f0f0;
+  color: #444;
+  padding: 4px 14px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: capitalize;
+  margin-top: 4px;
+}
+
+.profile-joined {
+  font-size: 12px;
+  color: #aaa;
+  margin: 4px 0 0;
+}
+
+/* =========================
+   RIGHT — EDIT SECTIONS
+========================= */
+
+.profile-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #eee;
+}
+
+.profile-card-header h3 {
+  font-size: 18px;
+  font-weight: 700;
+  color: #111;
+  margin: 0;
+}
+
+.profile-edit-btn {
+  background: #f5f5f5;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 7px 14px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #333;
+  transition: all 0.2s;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.profile-edit-btn:hover {
+  background: #FFD814;
+  border-color: #FCD200;
+  color: #111;
+}
+
+/* =========================
+   FIELDS
+========================= */
+
+.profile-field {
+  margin-bottom: 18px;
+}
+
+.profile-field label {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 6px;
+}
+
+.profile-value {
+  font-size: 15px;
+  color: #222;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.email-lock {
+  font-size: 11px;
+  color: #aaa;
+  font-weight: 400;
+}
+
+/* =========================
+   EDIT ROW
+========================= */
+
+.profile-edit-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.profile-input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #111;
+  outline: none;
+  transition: border-color 0.2s;
+  font-family: "Segoe UI", Arial, sans-serif;
+  background: #fafafa;
+}
+
+.profile-input:focus {
+  border-color: #f5a623;
+  background: #fff;
+}
+
+.profile-save-btn {
+  padding: 10px 20px;
+  background: #FFD814;
+  border: 1px solid #FCD200;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s;
+  white-space: nowrap;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.profile-save-btn:hover { background: #F7CA00; }
+.profile-save-btn:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.profile-cancel-btn {
+  padding: 10px 16px;
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  color: #555;
+  transition: background 0.2s;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+.profile-cancel-btn:hover { background: #f5f5f5; }
+
+/* =========================
+   PASSWORD FORM
+========================= */
+
+.pw-form {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 700px) {
+  .profile-grid { grid-template-columns: 1fr; }
+  .profile-left { padding: 20px; }
+}

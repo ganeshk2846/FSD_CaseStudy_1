@@ -1,0 +1,70 @@
+/* =========================
+   RESET
+========================= */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  background: #f3f3f3;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* =========================
+   HOME CONTAINER
+========================= */
+.home-container {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}
+
+.home-container h1 {
+  font-size: 36px;
+  text-align: center;
+  color: #111;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+/* =========================
+   PRODUCT GRID
+========================= */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 28px 22px; /* ✅ extra row gap for overlapping ADD button */
+}
+
+/* =========================
+   FLOATING CART BUTTON
+========================= */
+.goto-cart-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background-color: #111;
+  color: #fff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-weight: 600;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease-in-out;
+  z-index: 1000;
+}
+
+.goto-cart-btn:hover  { background-color: #333; }
+.goto-cart-btn:active { transform: scale(0.95); }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width: 768px) {
+  .home-container h1 { font-size: 28px; }
+}

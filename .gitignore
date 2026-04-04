@@ -1,0 +1,17 @@
+# Backend
+Backend/.env
+Backend/node_modules/
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+
+# Root
+node_modules/
+
+# Data files
+Backend/products.json
+
+# OS
+.DS_Store
+Thumbs.db

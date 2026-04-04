@@ -1,0 +1,265 @@
+/* Uses existing admin CSS variables from AdminLayout.css */
+
+/* =========================
+   FILTER TABS
+========================= */
+
+.ao-filters {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.ao-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 16px;
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  color: var(--text-muted);
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.ao-filter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.ao-filter-btn.active {
+  background: rgba(245, 166, 35, 0.15);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.ao-filter-count {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 1px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+/* =========================
+   ORDER LIST
+========================= */
+
+.ao-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* =========================
+   ORDER CARD
+========================= */
+
+.ao-card {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.ao-card:hover { border-color: #3a3d4a; }
+
+/* =========================
+   ORDER ROW
+========================= */
+
+.ao-row {
+  display: grid;
+  grid-template-columns: 1.2fr 1.5fr 1fr 1.4fr 1fr auto;
+  align-items: center;
+  padding: 16px 20px;
+  cursor: pointer;
+  gap: 12px;
+  transition: background 0.15s;
+}
+
+.ao-row:hover { background: rgba(255, 255, 255, 0.02); }
+
+.ao-col {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ao-id {
+  font-family: 'Syne', sans-serif;
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ao-date {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.ao-customer {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.ao-email {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.ao-items {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin: 0;
+}
+
+.ao-amount {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+/* =========================
+   STATUS SELECT
+========================= */
+
+.ao-status-select {
+  padding: 7px 10px;
+  background: var(--admin-bg);
+  border: 1.5px solid;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  outline: none;
+  width: 130px;
+  font-family: 'DM Sans', sans-serif;
+  transition: opacity 0.2s;
+}
+
+.ao-status-select:hover { opacity: 0.85; }
+
+/* =========================
+   PAYMENT BADGE
+========================= */
+
+.ao-pay {
+  font-size: 11px;
+  font-weight: 600;
+  padding: 3px 9px;
+  border-radius: 10px;
+  text-transform: capitalize;
+  width: fit-content;
+  margin: 0;
+}
+
+.ao-pay.pending { background: rgba(245, 166, 35, 0.15); color: var(--accent); }
+.ao-pay.paid    { background: rgba(46, 204, 113, 0.15); color: var(--success); }
+.ao-pay.failed  { background: rgba(231, 76, 60, 0.15);  color: var(--danger); }
+
+.ao-method {
+  font-size: 11px;
+  color: var(--text-muted);
+  margin: 3px 0 0;
+}
+
+/* =========================
+   EXPAND BUTTON
+========================= */
+
+.ao-expand-btn {
+  background: none;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 11px;
+  cursor: pointer;
+  padding: 5px 10px;
+  transition: all 0.2s;
+}
+
+.ao-expand-btn:hover {
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-primary);
+}
+
+/* =========================
+   EXPANDED DETAILS
+========================= */
+
+.ao-details {
+  padding: 20px 24px;
+  border-top: 1px solid var(--border);
+  background: rgba(0, 0, 0, 0.15);
+}
+
+.ao-details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+}
+
+.ao-details h4 {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.7px;
+  margin: 0 0 14px;
+}
+
+/* Detail Items */
+.ao-detail-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.ao-detail-item:last-child { border-bottom: none; }
+
+.ao-detail-item img {
+  width: 38px;
+  height: 38px;
+  object-fit: cover;
+  border-radius: 7px;
+  background: #2a2d3a;
+  flex-shrink: 0;
+}
+
+.ao-detail-item span:nth-child(2) { flex: 1; font-size: 13px; }
+.ao-detail-item span:nth-child(3) { color: var(--text-muted); }
+.ao-detail-item span:last-child   { font-weight: 700; }
+
+/* Address */
+.ao-address p {
+  font-size: 13px;
+  color: var(--text-primary);
+  line-height: 1.9;
+  margin: 0;
+}
+
+.ao-address p:first-child {
+  font-weight: 700;
+  font-size: 14px;
+}
