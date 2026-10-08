@@ -1,9 +1,9 @@
 import { useSearchParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../api/axios";
 import ProductCard from "../components/ProductCard";
 import { useCart } from "../context/CartContext";
 import { useNavigate } from "react-router-dom";
+import { fetchDummySearchProducts } from "../services/dummyProducts";
 import "../styles/SearchResults.css";
 
 const SearchResults = () => {
@@ -24,18 +24,15 @@ const SearchResults = () => {
     setLoading(true);
     setError("");
 
-    API.get(`/products/search?query=${encodeURIComponent(query)}`, {
-      signal: controller.signal
-    })
-      .then((res) => setProducts(res.data))
+    fetchDummySearchProducts(query)
+      .then((items) => setProducts(items))
       .catch((err) => {
         if (err.name === "CanceledError") return;
-        setError(err.response?.data?.message || "Search failed");
+        setError(err.message || "Search failed");
       })
       .finally(() => setLoading(false));
 
     return () => controller.abort();
-
   }, [query]);
 
   if (loading) {

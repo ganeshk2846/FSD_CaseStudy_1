@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import API from "../api/axios";
+import { fetchDummyCategories } from "../services/dummyProducts";
 
 const CategoryContext = createContext(null);
 
@@ -9,9 +9,9 @@ export const CategoryProvider = ({ children }) => {
 
   useEffect(() => {
     setLoading(true);
-    API.get("/products/categories")
-      .then(res => setCategories(res.data))
-      .catch(err => console.error(err))
+    fetchDummyCategories()
+      .then((items) => setCategories(items))
+      .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   }, []);
 

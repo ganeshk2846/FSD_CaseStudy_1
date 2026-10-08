@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../api/axios";
 import { useCart } from "../context/CartContext";
+import { fetchDummyProductById } from "../services/dummyProducts";
 import "../styles/ProductDetails.css";
 
 const ProductDetails = () => {
@@ -11,9 +11,9 @@ const ProductDetails = () => {
   const [selectedImg, setSelectedImg] = useState(0);
 
   useEffect(() => {
-    API.get(`/products/${id}`)
-      .then(res => setProduct(res.data))
-      .catch(err => console.error(err));
+    fetchDummyProductById(id)
+      .then((item) => setProduct(item))
+      .catch((err) => console.error(err));
   }, [id]);
 
   if (!product) return <h2 className="loading">Loading product...</h2>;

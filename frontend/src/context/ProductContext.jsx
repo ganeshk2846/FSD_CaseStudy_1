@@ -1,5 +1,5 @@
 import { createContext, useContext, useEffect, useState } from "react";
-import API from "../api/axios";
+import { fetchDummyProducts } from "../services/dummyProducts";
 
 const ProductContext = createContext(null);
 
@@ -11,17 +11,16 @@ export const ProductProvider = ({ children }) => {
     const controller = new AbortController();
 
     setLoading(true);
-    API.get("/products", { signal: controller.signal })
-      .then(res => setProducts(res.data))
-      .catch(err => {
+    fetchDummyProducts()
+      .then((items) => setProducts(items))
+      .catch((err) => {
         if (err.name === "CanceledError") return;
         console.error(err);
       })
       .finally(() => setLoading(false));
 
     return () => controller.abort();
-
-  }, []); // ✅ empty array — runs only once on mount
+  }, []);
 
   return (
     <ProductContext.Provider value={{ products, loading }}>

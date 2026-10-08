@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import API from "../api/axios";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import "../styles/Auth.css";
@@ -12,32 +11,28 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
+
+    if (!email.trim() || !password.trim()) {
+      alert("Enter any email and password to continue.");
+      return;
+    }
+
     setLoading(true);
 
     try {
-      const { data } = await API.post("/auth/login", {
-        email,
-        password,
-      });
+      const demoUserId = "demo-user";
+      localStorage.setItem("token", "demo-token");
+      localStorage.setItem("role", "user");
+      localStorage.setItem("userId", demoUserId);
+      localStorage.setItem("userEmail", email.trim());
 
-      const newUserId = data.user._id;
+      loadCartForUser(demoUserId);
 
-
-      // ✅ Save auth info
-      localStorage.setItem("token", data.token);
-      localStorage.setItem("role", data.user.role);
-      localStorage.setItem("userId", newUserId);
-      // ✅ Load correct cart for this user into React state immediately
-      loadCartForUser(newUserId);
-
-      navigate(data.user.role === "admin" ? "/admin" : "/", {
-        replace: true,
-      });
-
+      navigate("/", { replace: true });
     } catch (err) {
-      alert(err.response?.data?.message || "Login failed");
+      alert("Login failed");
     } finally {
       setLoading(false);
     }
@@ -74,7 +69,7 @@ const Login = () => {
           Don’t have an account? <a href="/signup">Sign Up</a>
         </p>
         <p>
-          <a href="/forgot-password">Forgot Password?</a>  {/* ✅ add this */}
+          <a href="/forgot-password">Forgot Password?</a>
         </p>
       </div>
     </div>

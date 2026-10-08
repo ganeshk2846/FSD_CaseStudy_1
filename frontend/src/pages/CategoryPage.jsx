@@ -1,9 +1,9 @@
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-import API from "../api/axios";
 import ProductCard from "../components/ProductCard";
 import { useCart } from "../context/CartContext";
-import "../styles/SearchResults.css"; // reuse existing styles
+import { fetchDummyCategoryProducts } from "../services/dummyProducts";
+import "../styles/SearchResults.css";
 
 const CategoryPage = () => {
   const { category } = useParams();
@@ -14,9 +14,9 @@ const CategoryPage = () => {
 
   useEffect(() => {
     setLoading(true);
-    API.get(`/products/category/${encodeURIComponent(category)}`)
-      .then(res => setProducts(res.data))
-      .catch(err => console.error(err))
+    fetchDummyCategoryProducts(category)
+      .then((items) => setProducts(items))
+      .catch((err) => console.error(err))
       .finally(() => setLoading(false));
   }, [category]);
 
